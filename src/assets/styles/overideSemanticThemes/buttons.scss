@@ -1,0 +1,11 @@
+/* Buttons */
+
+/* Default */
+.ui.button {
+  color: #fff;
+  background-color: $metalGrayDark;
+  &:hover {
+    color: #fff;
+    background-color: lighten($metalGrayDark, 5%);
+  }
+}

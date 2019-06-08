@@ -1,0 +1,14 @@
+/* Segment styles */
+.segmentBasic {
+  width: 100%;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background-color: $metalGrayBG !important;
+  box-shadow: none !important;
+}
+
+.ui.segments {
+  .segment {
+    border-radius: 0 !important;
+  }
+}

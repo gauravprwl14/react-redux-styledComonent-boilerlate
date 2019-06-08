@@ -1,0 +1,33 @@
+.searchResults {
+  .segment {
+
+    .accordion {
+      .title {
+        position: relative;
+        &.active {
+          padding-bottom: 1em;  
+        }
+        .dropdown.icon {
+          color: $primary;
+          position:absolute;
+          top: 0.78571429em;
+          right: .5rem;
+        }
+      }
+      .content {
+        &.active {
+          padding-top: 1em;
+        }
+      }
+    }
+    table {
+      margin: 0;
+      tbody {
+        td {
+          padding: .25em  0.78571429em;
+        }
+      }
+    }
+
+  }
+}

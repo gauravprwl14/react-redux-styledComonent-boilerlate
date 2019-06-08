@@ -18,6 +18,7 @@
         "no-return-assign": ["off"],
         "import/no-self-import": ["off"],
         "react/destructuring-assignment": ["off"],
-        "import/no-extraneous-dependencies": ["off"]
+        "import/no-extraneous-dependencies": ["off"],
+        "react/jsx-indent": ["off"]
     }
 }

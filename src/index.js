@@ -3,6 +3,8 @@ import ReactDOM from "react-dom";
 import "./index.scss";
 import App from "./containers/AppBootUp";
 import * as serviceWorker from "./serviceWorker";
+import "semantic-ui-css/semantic.min.css";
+import "./assets/styles/overideSemanticThemes/index.scss";
 
 ReactDOM.render(<App />, document.getElementById("root"));
 

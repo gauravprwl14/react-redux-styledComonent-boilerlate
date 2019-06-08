@@ -1,0 +1,25 @@
+/* Header */
+.pageHeader {
+    background-color: $metalGrayBG;
+    padding: 0.5rem 0.25rem;
+    .ui.header {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        span {
+            color: $primary;
+        }
+    }
+}
+
+.ui.header.resultCount {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1rem;
+    background: $primary !important;
+    span {
+        font-weight: normal;
+        text-align: right;
+    }
+    border-radius: 0 !important;
+}

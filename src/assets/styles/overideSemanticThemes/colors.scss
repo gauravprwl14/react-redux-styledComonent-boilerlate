@@ -1,0 +1,20 @@
+/* Colors */
+$primary: #1991EB;
+$positive: #09C199;
+$metalGrayBG: #EDF1F5;
+$metalGrayDark: #536377;
+$whitesmoke: #f5f5f5;
+
+.metalGrayBG,
+.shadedTR {
+  background-color: $metalGrayBG !important;
+  input {
+    background: #fff !important;
+  }
+}
+.whitesmokeBG {
+  background-color: $whitesmoke !important;
+  input {
+    background: #fff !important;
+  }
+}

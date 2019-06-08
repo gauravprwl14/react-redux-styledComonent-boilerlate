@@ -1,0 +1,45 @@
+/* Tables */
+.ui .table {
+  &.basic {
+    border: 0;
+  }
+  tbody {
+    tr {
+      &.businessLogic, &.active {
+        background-color: #EDF1F5 !important;
+      }
+      td {
+        &.paddedCell {
+          padding: 0.78571429em 0.78571429em !important;
+        }
+      }
+    }
+  }
+  &.minimalTable {
+    position: relative;
+    margin-top: -.5em;
+
+    thead {
+
+      th {
+        font-size: .8rem;
+        text-transform: uppercase;
+        font-weight: 400;
+        color: #999;
+        padding: 0  0.78571429em 0.5em 0.78571429em;
+        border-radius: 0 !important;
+        border-bottom: 0 !important;
+      }
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      display: block;
+      bottom: 0;
+      left: -1em;
+      right:-1.1em;
+      border-bottom: 1px solid #ddd;
+    }
+  }
+}

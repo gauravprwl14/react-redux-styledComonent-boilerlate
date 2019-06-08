@@ -1,0 +1,65 @@
+/* Accordion */
+.ui.accordion.menu.searchAccordion {
+  width: 100% !important;
+  height: auto !important;
+  padding: 0 !important;
+  border-radius: 0;
+  box-shadow: inset -1px 0px 0px #ddd !important;
+  border: 0;
+
+  .item {
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 1.5em 1.14285714em;
+
+    .title {
+      position: relative;
+      font-weight: 600;
+      &.active {
+        color: $primary;
+        padding: 0 0 1.5em 0;
+        &:before {
+          content:'';
+          display: block;
+          position: absolute;
+          top: -1.5em;
+          left: -1.14285714em;
+          bottom: 0;
+          width: 5px;
+          background-color: $primary;
+        }
+      }
+      & > .dropdown.icon {
+        color: $primary !important;
+        margin: 0 !important;
+      }
+    }
+
+    .content {
+      font-weight: normal;
+      &.active {
+        margin-left: -1.14285714em;
+        margin-right: -1.14285714em;
+        margin-top: 0;
+        margin-bottom: -1em;
+        padding: 1.14285714em !important;
+        background-color: #f5f5f5;
+        box-shadow: inset 1px 1px 0 $primary, inset -1px -1px 0 $primary;
+      }
+      .ui.form {
+        .grouped.fields {
+          .field {
+            margin: 0;
+            padding: .75em 0em;
+
+            .ui.checkbox {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+}
