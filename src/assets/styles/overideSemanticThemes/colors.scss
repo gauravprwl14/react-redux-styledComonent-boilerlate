@@ -1,20 +1,22 @@
 /* Colors */
-$primary: #1991EB;
-$positive: #09C199;
-$metalGrayBG: #EDF1F5;
+$primary: #1991eb;
+$positive: #09c199;
+$metalGrayBG: #edf1f5;
 $metalGrayDark: #536377;
 $whitesmoke: #f5f5f5;
+$black: #000000;
+$white: #ffffff;
 
 .metalGrayBG,
 .shadedTR {
-  background-color: $metalGrayBG !important;
-  input {
-    background: #fff !important;
-  }
+    background-color: $metalGrayBG !important;
+    input {
+        background: #fff !important;
+    }
 }
 .whitesmokeBG {
-  background-color: $whitesmoke !important;
-  input {
-    background: #fff !important;
-  }
+    background-color: $whitesmoke !important;
+    input {
+        background: #fff !important;
+    }
 }

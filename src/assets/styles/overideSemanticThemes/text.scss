@@ -1,0 +1,41 @@
+/* Colors */
+$smallerSize: 0.62857143px;
+$smallSize: 0.92857143rem;
+$mediumSize: 1rem;
+$largeSize: 1.2rem;
+$largerSize: 1.4rem;
+$xLargeSize: 1.6rem;
+
+.text {
+    color: $black;
+    &.t-xs {
+        font-size: $smallerSize;
+    }
+    &.t-s {
+        font-size: $smallSize;
+    }
+    &.t-m {
+        font-size: $mediumSize;
+    }
+    &.t-l {
+        font-size: $largeSize;
+    }
+    &.t-ll {
+        font-size: $largerSize;
+    }
+    &.t-xl {
+        font-size: $xLargeSize;
+    }
+}
+
+.text-primary {
+    color: $primary;
+}
+
+.text-white {
+    color: $whitesmoke;
+}
+
+.text-bold {
+    font-weight: bold;
+}

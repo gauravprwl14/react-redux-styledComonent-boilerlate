@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
 // import * as homeActions from "../../store/actions/home.action";
-import { Grid } from "semantic-ui-react";
 import * as showContactActions from "../../store/actions/showContact.action";
 import RenderShowContact from "./RenderShowContact.js";
 import SidebarFilters from "./SidebarFilters";
