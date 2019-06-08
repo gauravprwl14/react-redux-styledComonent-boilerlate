@@ -6,11 +6,15 @@ import Box from "../General/Box";
 
 const SearchBoxContainer = styled(Flex)`
     align-items: center !important;
+    flex: 1;
 `;
 
 const InputBoxContainer = styled(Flex)`
     flex: 1;
     margin-left: 10px;
+    .ui.icon.input {
+        width: 100%;
+    }
     input {
         padding-top: 8px !important;
         padding-bottom: 8px !important;
