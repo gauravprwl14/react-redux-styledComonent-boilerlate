@@ -17,6 +17,7 @@
         "react/prop-types": ["warn"],
         "no-return-assign": ["off"],
         "import/no-self-import": ["off"],
-        "react/destructuring-assignment": ["off"]
+        "react/destructuring-assignment": ["off"],
+        "import/no-extraneous-dependencies": ["off"]
     }
 }

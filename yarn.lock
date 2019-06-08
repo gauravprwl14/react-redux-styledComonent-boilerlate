@@ -859,7 +859,7 @@
   dependencies:
     regenerator-runtime "^0.13.2"
 
-"@babel/runtime@^7.1.2", "@babel/runtime@^7.4.0", "@babel/runtime@^7.4.3":
+"@babel/runtime@^7.1.2", "@babel/runtime@^7.4.0", "@babel/runtime@^7.4.3", "@babel/runtime@^7.4.4":
   version "7.4.5"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.4.5.tgz#582bb531f5f9dc67d2fcb682979894f75e253f12"
   integrity sha512-TuI4qpWZP6lGOGIuGWtp9sPluqYICmbk8T/1vpSysqJxRPkudh/ofFWyqdcMsDf2s7KvDL4/YHgKyvcS3g9CJQ==
@@ -1518,6 +1518,30 @@
     "@webassemblyjs/ast" "1.8.5"
     "@webassemblyjs/wast-parser" "1.8.5"
     "@xtuc/long" "4.2.2"
+
+"@xstyled/core@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@xstyled/core/-/core-1.2.0.tgz#1826c29b9e11c737a1bfeb003995cb896476c410"
+  integrity sha512-JCdL+blLfxF/Gs3tNRlYfyNtOIEjk3jcwW5U1GCacvJi5sStqJJklSb/XiuS8fQP7E0Vxf6AZ9CGPqCT2yjb1A==
+  dependencies:
+    "@babel/runtime" "^7.4.4"
+    "@xstyled/system" "^1.2.0"
+
+"@xstyled/styled-components@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@xstyled/styled-components/-/styled-components-1.2.0.tgz#ab4f116d1c5865ed8e8cccb9f8f00bd7b714f893"
+  integrity sha512-hSiPe4xlAIg03yoaTBtYW0s4fn3JoPW9ZwsNfKQD1jWGgQWcO48Jm5/KJm88PVa5vHEPZPn8GpLFx4hGtaEESA==
+  dependencies:
+    "@babel/runtime" "^7.4.4"
+    "@xstyled/core" "^1.2.0"
+
+"@xstyled/system@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@xstyled/system/-/system-1.2.0.tgz#e6939e7a00832a2acbc0d280b8ebe56d852b4f9d"
+  integrity sha512-ZytevZWiLxysBJsdtyONvdYynEv7rVQvrI5R1lvLI1lqjM0gjBZgy1WcF8uyrxLSE0jBip9gjR5H1iSmXA8piA==
+  dependencies:
+    "@babel/runtime" "^7.4.4"
+    deepmerge "^3.2.0"
 
 "@xtuc/ieee754@^1.2.0":
   version "1.2.0"
@@ -3219,6 +3243,11 @@ deep-is@~0.1.3:
   version "0.1.3"
   resolved "https://registry.yarnpkg.com/deep-is/-/deep-is-0.1.3.tgz#b369d6fb5dbc13eecf524f91b070feedc357cf34"
   integrity sha1-s2nW+128E+7PUk+RsHD+7cNXzzQ=
+
+deepmerge@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-3.2.0.tgz#58ef463a57c08d376547f8869fdc5bcee957f44e"
+  integrity sha512-6+LuZGU7QCNUnAJyX8cIrlzoEgggTM6B7mm+znKOX4t5ltluT9KLjN6g61ECMS0LTsLW7yDpNoxhix5FZcrIow==
 
 default-gateway@^4.2.0:
   version "4.2.0"
