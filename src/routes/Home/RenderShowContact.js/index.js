@@ -44,10 +44,10 @@ const RenderAccordionContent = props => {
 const RenderShowContact = props => {
     const activeIndex = 100;
     return (
-        <Segment.Group>
+        <Segment.Group className="render-show-contact-container">
             <CardHeader title={props.showName} resultCount={props.contactCount} />
-            <Segment attached>
-                <Table unstackable basic className="minimalTable">
+            <Segment attached className="segment-container">
+                <Table unstackable basic className="minimalTable table-container">
                     <Table.Header>
                         <Table.Row>
                             {props.headerColumnArr.map(tableHeaderObj => {

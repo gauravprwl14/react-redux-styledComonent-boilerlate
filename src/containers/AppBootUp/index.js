@@ -2,14 +2,15 @@ import React from "react";
 import { Provider } from "react-redux";
 import AppRoutes from "../../routes";
 import reduxStore from "../../store/index";
+import "./styles.scss";
 
 function AppBootUp() {
     return (
-      <div className="App">
-        <Provider store={reduxStore}>
-          <AppRoutes />
-        </Provider>
-      </div>
+        <div className="app-container">
+            <Provider store={reduxStore}>
+                <AppRoutes />
+            </Provider>
+        </div>
     );
 }
 

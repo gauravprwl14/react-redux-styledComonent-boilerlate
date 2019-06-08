@@ -1,8 +1,8 @@
 import React from "react";
 import Box from "../../../components/General/Box";
 
-const Sidebar = () => {
+const SidebarFilters = () => {
     return <Box>sda</Box>;
 };
 
-export default Sidebar;
+export default SidebarFilters;

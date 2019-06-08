@@ -1,11 +1,29 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import styled from "styled-components";
 // import * as homeActions from "../../store/actions/home.action";
 import { Grid } from "semantic-ui-react";
 import * as showContactActions from "../../store/actions/showContact.action";
 import RenderShowContact from "./RenderShowContact.js";
+import SidebarFilters from "./SidebarFilters";
 import { HEADER_COLUMN } from "../../utils/constants";
+import Flex from "../../components/General/Flex";
+import Box from "../../components/General/Box";
 import "./styles.scss";
+
+const SidebarContainer = styled(Flex)`
+    flex-basis: 24%;
+    min-height: 100vh;
+`;
+
+const BodyContainer = styled(Flex)`
+    flex: 1;
+    padding-left: 1rem;
+    padding-right: 1rem;
+`;
+const ShowContactContainer = styled(Box)`
+    width: 100%;
+`;
 
 class Home extends Component {
     componentDidMount() {
@@ -14,26 +32,18 @@ class Home extends Component {
 
     render() {
         return (
-          <div>
-            <Grid.Row className="grow borderT3px primaryBorder paddingV0">
-              <Grid.Column
-                className="whitesmokeBG paddingV1rem borderRightBS"
-                mobile={16}
-                tablet={5}
-                computer={4}
-              >
-                Sidebar
-              </Grid.Column>
-              <Grid.Column
-                className="searchResults paddingV1rem"
-                mobile={16}
-                tablet={11}
-                computer={12}
-              >
-                <RenderShowContact headerColumnArr={HEADER_COLUMN} />
-              </Grid.Column>
-            </Grid.Row>
-          </div>
+            <div>
+                <Flex className="grow borderT3px primaryBorder paddingV0">
+                    <SidebarContainer className="whitesmokeBG paddingV1rem borderRightBS">
+                        <SidebarFilters />
+                    </SidebarContainer>
+                    <BodyContainer className="searchResults paddingV1rem">
+                        <ShowContactContainer>
+                            <RenderShowContact headerColumnArr={HEADER_COLUMN} />
+                        </ShowContactContainer>
+                    </BodyContainer>
+                </Flex>
+            </div>
         );
     }
 }

@@ -1,4 +1,4 @@
-import styled, { css } from "@xstyled/styled-components";
+import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
 
 const offsetFactory = ({ outside, top, right, left, bottom, vertical, horizontal, all }) => {
