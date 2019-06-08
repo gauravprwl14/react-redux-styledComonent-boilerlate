@@ -1,7 +1,7 @@
 import { all } from "redux-saga/effects";
-import homeSaga from "./home.saga";
+import showContactSaga from "./showContact.saga";
 
-export const tasks = [...homeSaga];
+export const tasks = [...showContactSaga];
 
 export default function* root() {
     // effects

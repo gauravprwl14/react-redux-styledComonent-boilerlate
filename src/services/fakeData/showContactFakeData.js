@@ -1,4 +1,4 @@
-{
+const response = {
   "succcess": true,
   "data": [
     {
@@ -484,3 +484,5 @@
   ],
   "responseStatus": 200
 }
+
+export default response
