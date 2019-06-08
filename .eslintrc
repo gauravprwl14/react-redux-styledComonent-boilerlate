@@ -16,6 +16,7 @@
         "react/jsx-filename-extension": ["off"],
         "react/prop-types": ["warn"],
         "no-return-assign": ["off"],
-        "import/no-self-import": ["off"]
+        "import/no-self-import": ["off"],
+        "react/destructuring-assignment": ["off"]
     }
 }
