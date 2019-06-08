@@ -9,7 +9,7 @@ export default function(state = initialState, action = {}) {
     const { type } = action;
 
     switch (type) {
-        case actionTypes.TEST_ASYNC_ACTION: {
+        case actionTypes.TEST_ASYNC_ACTION_REQUEST: {
             return {
                 ...state,
                 asyncActionCount: state.asyncActionCount + 1

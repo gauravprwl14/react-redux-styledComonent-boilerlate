@@ -1,13 +1,16 @@
 import { createStore, applyMiddleware, compose } from "redux";
 // eslint-disable-next-line
 import { createLogger } from "redux-logger";
+import sagaMiddleware from "../middleware/sagaMiddleware";
 import createRootReducer from "./reducer/index";
+import createRootSaga from "./saga";
 // import { routerMiddleware } from 'connected-react-router'
 
 function configureStore(initializationObj, initialState) {
     const loggerMiddleware = createLogger({ duration: true });
     const middlewares = [
         // routerMiddleware(history),
+        sagaMiddleware
     ];
 
     console.log("%c process.env.APP_ENV ", "background: aqua; color: black", process.env);
@@ -28,5 +31,7 @@ function configureStore(initializationObj, initialState) {
 const store = configureStore({
     history: {}
 });
+
+sagaMiddleware.run(createRootSaga);
 
 export default store;
