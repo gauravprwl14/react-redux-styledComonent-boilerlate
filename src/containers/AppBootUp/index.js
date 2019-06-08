@@ -1,8 +1,8 @@
 import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import logo from "../../assets/images/icons/logo.svg";
+import "./styles.scss";
 
-function App() {
+function AppBootUp() {
     return (
       <div className="App">
         <header className="App-header">
@@ -20,4 +20,4 @@ function App() {
     );
 }
 
-export default App;
+export default AppBootUp;
