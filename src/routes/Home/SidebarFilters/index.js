@@ -5,7 +5,8 @@ import Flex from "../../../components/General/Flex";
 import SearchBox from "../../../components/SearchBox";
 import Spinner from "../../../components/General/Spinner";
 import Condition from "../../../components/General/Condition";
-import MultiSelectFilter from "./MultiSelectFilter";
+import MultiSelectFilter from "./MultiSelectFilter/index";
+import * as colors from "../../../utils/colour";
 
 const SideBarFilterContainer = styled(Flex)`
     flex: 1;
@@ -21,13 +22,13 @@ const SearchBoxWrapper = styled(Flex)`
     padding-bottom: 0.8rem;
     padding-left: 15px;
     padding-right: 15px;
-    border-bottom: 1px solid rgba(34, 36, 38, 0.15);
+    border-bottom: 1px solid ${colors.lightGrey}
     align-items: center !important;
 `;
 
 const FilterContainer = styled(Flex)`
     background-color: white;
-    border-bottom: 1px solid rgba(34, 36, 38, 0.15);
+    border-bottom: 1px solid ${colors.lightGrey};
     box-shadow: inset 0px 0px -px #ddd;
     flex-direction: column;
 `;

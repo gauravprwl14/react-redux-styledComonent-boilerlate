@@ -52,7 +52,10 @@ class Home extends Component {
 function mapDispatchToProps(dispatch) {
     return {
         fetchShowContactsData: () => dispatch(showContactActions.fetchShowContactAction()),
-        fetchAllFilters: () => dispatch(filtersActions.fetchAllFilters())
+        fetchAllFilters: () => {
+            const initializeSelectedFilters = true;
+            dispatch(filtersActions.fetchAllFilters(initializeSelectedFilters));
+        }
     };
 }
 function mapStateToProps(state) {

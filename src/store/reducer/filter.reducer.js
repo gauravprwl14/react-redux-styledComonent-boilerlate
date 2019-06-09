@@ -45,11 +45,7 @@ export default function(state = initialState, action = {}) {
             if (isNilOrEmpty(payload.data)) {
                 return state;
             }
-            return R.assocPath(
-                ["selectedFilters", payload.filterId, "isExpand"],
-                payload.expandState || false,
-                state
-            );
+            return R.assocPath(["selectedFilters"], payload.data, state);
         }
 
         default:

@@ -23,7 +23,7 @@ function schemaToMapFilterObj(filterObj) {
         return res;
     }
 
-    res.id = filterObj.id || "";
+    res.id = filterObj.id || filterObj.name || "";
     res.name = filterObj.name || "";
     res.values = !isNilOrEmpty(filterObj.values)
         ? R.map(schemaToMapFilterValue)(filterObj.values)
