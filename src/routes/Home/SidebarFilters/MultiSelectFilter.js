@@ -1,14 +1,28 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { Icon } from "semantic-ui-react";
 import Flex from "../../../components/General/Flex";
 import Box from "../../../components/General/Box";
 import MultiSelectCheckbox from "../../../components/MultiSelectCheckbox";
+import * as colors from "../../../utils/colour";
 
 const FilterWrapper = styled(Flex)`
     flex: 1;
     min-height: 66px;
     align-items: center;
+    position: relative;
+    ${props =>
+        props.isOpened &&
+        css`
+            &:before {
+                content: "";
+                background: ${colors.primary};
+                width: 5px;
+                height: 100%;
+                position: absolute;
+                left: -15px;
+            }
+        `}
 `;
 
 const Container = styled(Flex)`
@@ -18,17 +32,26 @@ const Container = styled(Flex)`
     padding-right: 15px;
 `;
 
-const FliterName = styled(Flex)`
+const FilterName = styled(Flex)`
     flex: 1;
 `;
+const CheckboxContainer = styled(Flex)`
+    margin: 0px -1rem 10px;
+    padding: 1rem;
+    background: ${colors.whiteSmoke};
+    border: 1px solid ${colors.primary};
+`;
 
-const FilterTitle = () => {
+const FilterTitle = props => {
     return (
-        <FilterWrapper>
+        <FilterWrapper isOpened={props.isOpened}>
             {" "}
-            <FliterName>
-                <span className="text t-ll text-bold">dasd </span>
-            </FliterName>
+            <FilterName>
+                <span className="text t-ll text-bold">
+{props.title}
+{' '}
+                </span>
+            </FilterName>
             <Box>
                 <Icon name="triangle left" />
             </Box>
@@ -36,13 +59,13 @@ const FilterTitle = () => {
     );
 };
 
-const MultiSelectFilter = () => {
+const MultiSelectFilter = props => {
     return (
         <Container>
-            <FilterTitle />
-            <Box>
+            <FilterTitle title={props.title} isOpened={props.isOpened} />
+            <CheckboxContainer>
                 <MultiSelectCheckbox />
-            </Box>
+            </CheckboxContainer>
         </Container>
     );
 };
