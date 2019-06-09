@@ -1,7 +1,10 @@
 import React from "react";
+import { connect } from "react-redux";
 import styled from "styled-components";
 import Flex from "../../../components/General/Flex";
 import SearchBox from "../../../components/SearchBox";
+import Spinner from "../../../components/General/Spinner";
+import Condition from "../../../components/General/Condition";
 import MultiSelectFilter from "./MultiSelectFilter";
 
 const SideBarFilterContainer = styled(Flex)`
@@ -26,19 +29,33 @@ const FilterContainer = styled(Flex)`
     background-color: white;
     border-bottom: 1px solid rgba(34, 36, 38, 0.15);
     box-shadow: inset 0px 0px -px #ddd;
+    flex-direction: column;
 `;
 
-const SidebarFilters = () => {
+const SidebarFilters = props => {
+    console.log("%c isLoading ", "background: aqua; color: black", props);
     return (
         <SideBarFilterContainer>
             <SearchBoxWrapper>
                 <SearchBox />
             </SearchBoxWrapper>
             <FilterContainer>
-                <MultiSelectFilter />
+                <Condition when={props.isLoading}>
+                    <Spinner />
+                </Condition>
+                <Condition when={!props.isLoading}>
+                    <MultiSelectFilter />
+                </Condition>
             </FilterContainer>
         </SideBarFilterContainer>
     );
 };
 
-export default SidebarFilters;
+function mapStateToProps(state) {
+    return {
+        isLoading: state.filters.isLoading || false,
+        filtersToRender: state.filters.filterToRender || []
+    };
+}
+
+export default connect(mapStateToProps)(SidebarFilters);
