@@ -2,19 +2,19 @@ const fakeData = {
     data: [
         {
             name: "CBS All News",
-            value: ["abc", "xyz"]
+            values: ["abc", "xyz"]
         },
         {
             name: "Talent profile",
-            value: ["abc", "xyz"]
+            values: ["abc", "xyz"]
         },
         {
             name: "Watchlist",
-            value: ["abc", "xyz"]
+            values: ["abc", "xyz"]
         },
         {
             name: "Role",
-            value: ["abc", "xyz"]
+            values: ["abc", "xyz"]
         }
     ]
 };

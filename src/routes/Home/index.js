@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import styled from "styled-components";
 // import * as homeActions from "../../store/actions/home.action";
 import * as showContactActions from "../../store/actions/showContact.action";
+import * as filtersActions from "../../store/actions/filter.action";
 import RenderShowContact from "./RenderShowContact.js";
 import SidebarFilters from "./SidebarFilters";
 import { HEADER_COLUMN } from "../../utils/constants";
@@ -27,6 +28,7 @@ const ShowContactContainer = styled(Box)`
 class Home extends Component {
     componentDidMount() {
         this.props.fetchShowContactsData();
+        this.props.fetchAllFilters();
     }
 
     render() {
@@ -49,7 +51,8 @@ class Home extends Component {
 
 function mapDispatchToProps(dispatch) {
     return {
-        fetchShowContactsData: () => dispatch(showContactActions.fetchShowContactAction())
+        fetchShowContactsData: () => dispatch(showContactActions.fetchShowContactAction()),
+        fetchAllFilters: () => dispatch(filtersActions.fetchAllFilters())
     };
 }
 function mapStateToProps(state) {

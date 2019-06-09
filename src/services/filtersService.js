@@ -1,6 +1,6 @@
 import * as ApiService from "./apiService";
 
-export async function fetchFilters() {
+export async function fetchAllFilters() {
     const apiObject = {
         method: "GET",
         endPoint: `api/static-filters`
@@ -8,4 +8,4 @@ export async function fetchFilters() {
     return ApiService.callApi(apiObject);
 }
 
-export default fetchFilters;
+export default fetchAllFilters;

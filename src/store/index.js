@@ -16,7 +16,6 @@ function configureStore(initializationObj, initialState) {
     console.log("%c process.env.APP_ENV ", "background: aqua; color: black", process.env);
 
     if (process.env.NODE_ENV === "development") {
-        console.log("%c sadas ", "background: aqua; color: black");
         middlewares.unshift(loggerMiddleware);
     }
 
