@@ -4,6 +4,7 @@ import { Icon } from "semantic-ui-react";
 import Flex from "../../../components/General/Flex";
 import Box from "../../../components/General/Box";
 import MultiSelectCheckbox from "../../../components/MultiSelectCheckbox";
+import { isNilOrEmpty } from "../../../utils/helper";
 import * as colors from "../../../utils/colour";
 
 const FilterWrapper = styled(Flex)`
@@ -47,10 +48,7 @@ const FilterTitle = props => {
         <FilterWrapper isOpened={props.isOpened}>
             {" "}
             <FilterName>
-                <span className="text t-ll text-bold">
-{props.title}
-{' '}
-                </span>
+                <span className="text t-ll text-bold">{props.title}</span>
             </FilterName>
             <Box>
                 <Icon name="triangle left" />
@@ -59,15 +57,24 @@ const FilterTitle = props => {
     );
 };
 
-const MultiSelectFilter = props => {
+const RenderFilter = props => {
     return (
         <Container>
-            <FilterTitle title={props.title} isOpened={props.isOpened} />
+            <FilterTitle title={props.name} isOpened={props.isOpened} />
             <CheckboxContainer>
-                <MultiSelectCheckbox />
+                <MultiSelectCheckbox options={props.values} />
             </CheckboxContainer>
         </Container>
     );
+};
+
+const MultiSelectFilter = props => {
+    if (isNilOrEmpty(props.filtersToRender)) {
+        return <Container>No Filters Available</Container>;
+    }
+    return props.filtersToRender.map(filterObj => {
+        return <RenderFilter {...filterObj} />;
+    });
 };
 
 export default MultiSelectFilter;

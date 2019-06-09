@@ -33,7 +33,6 @@ const FilterContainer = styled(Flex)`
 `;
 
 const SidebarFilters = props => {
-    console.log("%c isLoading ", "background: aqua; color: black", props);
     return (
         <SideBarFilterContainer>
             <SearchBoxWrapper>
@@ -44,7 +43,7 @@ const SidebarFilters = props => {
                     <Spinner />
                 </Condition>
                 <Condition when={!props.isLoading}>
-                    <MultiSelectFilter />
+                    <MultiSelectFilter filtersToRender={props.filtersToRender} />
                 </Condition>
             </FilterContainer>
         </SideBarFilterContainer>

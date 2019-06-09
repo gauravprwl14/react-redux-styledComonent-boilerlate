@@ -2,6 +2,7 @@ import React from "react";
 import { Checkbox, Button } from "semantic-ui-react";
 import styled from "styled-components";
 import Flex from "../General/Flex";
+import Condition from "../General/Condition";
 import { isNilOrEmpty } from "../../utils/helper";
 
 const Container = styled(Flex)`
@@ -77,22 +78,30 @@ const MultiSelectCheckbox = props => {
         <Container>
             <ActionButtons />
             <CheckboxGroupContainer>
-                {!isNilOrEmpty(props.valuesToRender)
-                    ? props.valuesToRender.map(checkboxObj => {
-                          return (
-                              <CheckboxContainer key={checkboxObj.label}>
-                                  <Checkbox label={checkboxObj.label} value={checkboxObj.value} />
-                              </CheckboxContainer>
-                          );
-                      })
-                    : null}
+                <Condition when={isNilOrEmpty(props.options)}>
+                    <Flex>
+                        <div> No Data Available </div>
+                    </Flex>
+                </Condition>
+
+                <Condition when={!isNilOrEmpty(props.options)}>
+                    {props.options
+                        ? props.options.map(optionObj => {
+                              return (
+                                  <CheckboxContainer key={optionObj.id}>
+                                      <Checkbox label={optionObj.label} value={optionObj.value} />
+                                  </CheckboxContainer>
+                              );
+                          })
+                        : null}
+                </Condition>
             </CheckboxGroupContainer>
         </Container>
     );
 };
 
 MultiSelectCheckbox.defaultProps = {
-    valuesToRender: [
+    options: [
         {
             label: "48 Hours",
             value: "48 Hours"
