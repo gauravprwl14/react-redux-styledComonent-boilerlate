@@ -20,3 +20,5 @@ export const createSyncActions = (...col) =>
 
 export const createAsyncActions = (...col) =>
     col.reduce((acc, el) => R.merge(acc, createAsyncActionType(el)), {});
+
+export const trimString = str => str.replace(/^\s+|\s+$/g, "");
