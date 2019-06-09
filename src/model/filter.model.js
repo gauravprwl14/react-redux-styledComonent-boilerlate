@@ -49,7 +49,7 @@ function schemaToMapSelectedFilterState(mappedObj, nextObj) {
     }
     const res = {
         isExpand: false,
-        selectedFilters: []
+        filterToApply: []
     };
     // eslint-disable-next-line
     mappedObj[nextObj.id] = res;

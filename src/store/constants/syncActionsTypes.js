@@ -3,7 +3,8 @@ const syncActions = [
 
     // FILTERS ACTION TYPES
     "INITIALIZE_SELECTED_FILTER_STATE",
-    "TOGGLE_FILTER_EXPAND_STATE"
+    "TOGGLE_FILTER_EXPAND_STATE",
+    "HANDLE_FILTER_OPTION_CLICK"
 ];
 
 export default syncActions;

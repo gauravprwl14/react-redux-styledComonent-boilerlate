@@ -1,6 +1,7 @@
 import React from "react";
 import { Checkbox, Button } from "semantic-ui-react";
 import styled from "styled-components";
+import * as R from "ramda";
 import Flex from "../General/Flex";
 import Condition from "../General/Condition";
 import { isNilOrEmpty } from "../../utils/helper";
@@ -48,15 +49,27 @@ const CheckboxContainer = styled(Flex)`
     padding-bottom: 10px;
 `;
 
-const ActionButtons = () => {
+function isOptionSelected(selectedValuesArr, option) {
+    if (isNilOrEmpty(selectedValuesArr) || isNilOrEmpty(option)) {
+        return false;
+    }
+    const foundIndex = R.findIndex(R.propEq("value", option.value))(selectedValuesArr);
+    return foundIndex !== -1;
+}
+
+const ActionButtons = props => {
     return (
         <ActionContainer>
-            <ButtonWrapper primary className="first-child">
+            <ButtonWrapper primary className="first-child" onClick={props.selectAllFilters}>
                 {" "}
                 Select All
 {" "}
             </ButtonWrapper>
-            <ButtonWrapper className="last-child"> Clear Selection </ButtonWrapper>
+            <ButtonWrapper className="last-child" onClick={props.clearAllFilters}>
+                {" "}
+                Clear Selection
+{" "}
+            </ButtonWrapper>
         </ActionContainer>
     );
 };
@@ -64,7 +77,10 @@ const ActionButtons = () => {
 const MultiSelectCheckbox = props => {
     return (
         <Container>
-            <ActionButtons />
+            <ActionButtons
+              clearAllFilters={props.handleClearAllFilters}
+              selectAllFilters={props.handleSelectAllFilters}
+            />
             <CheckboxGroupContainer>
                 <Condition when={isNilOrEmpty(props.options)}>
                     <Flex>
@@ -77,7 +93,18 @@ const MultiSelectCheckbox = props => {
                         ? props.options.map(optionObj => {
                               return (
                                   <CheckboxContainer key={optionObj.id}>
-                                      <Checkbox label={optionObj.label} value={optionObj.value} />
+                                      <Checkbox
+                                        label={optionObj.label}
+                                        value={optionObj.value}
+                                        checked={isOptionSelected(
+                                              props.selectedValues,
+                                              optionObj
+                                          )}
+                                        onClick={e => {
+                                              const checkedState = e.target.checked;
+                                              props.handleCheckBoxClick(optionObj, checkedState);
+                                          }}
+                                      />
                                   </CheckboxContainer>
                               );
                           })

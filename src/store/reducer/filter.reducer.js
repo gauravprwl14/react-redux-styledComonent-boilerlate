@@ -47,6 +47,16 @@ export default function(state = initialState, action = {}) {
             }
             return R.assocPath(["selectedFilters"], payload.data, state);
         }
+        case actionTypes.HANDLE_FILTER_OPTION_CLICK: {
+            if (isNilOrEmpty(payload.filterId)) {
+                return state;
+            }
+            return R.assocPath(
+                ["selectedFilters", payload.filterId, "filterToApply"],
+                payload.filtersToApply,
+                state
+            );
+        }
 
         default:
             return state;

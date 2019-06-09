@@ -14,5 +14,12 @@ export const toggleFilterExpandStateAction = (filterId, expandState) => ({
         expandState
     }
 });
+export const handleFilterOptionClick = (filterId, selectedFilterOptionsArr) => ({
+    type: actionTypes.HANDLE_FILTER_OPTION_CLICK,
+    payload: {
+        filterId,
+        filtersToApply: selectedFilterOptionsArr
+    }
+});
 
 export default fetchAllFilters;
