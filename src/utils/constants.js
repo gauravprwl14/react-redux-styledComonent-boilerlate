@@ -1,5 +1,3 @@
-import { className } from "postcss-selector-parser";
-
 export const FILTER_CONSTANTS = {
     cbsAllNews: {
         name: "CBS All News"

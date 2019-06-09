@@ -5,7 +5,8 @@ import { isNilOrEmpty } from "../../utils/helper";
 const initialState = {
     filterToRender: [],
     isLoading: false,
-    selectedFilters: {}
+    selectedFilters: {},
+    searchKeyword: ""
 };
 
 export default function(state = initialState, action = {}) {
@@ -56,6 +57,12 @@ export default function(state = initialState, action = {}) {
                 payload.filtersToApply,
                 state
             );
+        }
+        case actionTypes.UPDATE_SEARCH_TERM: {
+            return {
+                ...state,
+                searchKeyword: !R.isNil(payload.data) ? payload.data : ""
+            };
         }
 
         default:

@@ -21,5 +21,9 @@ export const handleFilterOptionClick = (filterId, selectedFilterOptionsArr) => (
         filtersToApply: selectedFilterOptionsArr
     }
 });
-
-export default fetchAllFilters;
+export const updateSearchKeyword = searchKeyWord => ({
+    type: actionTypes.UPDATE_SEARCH_TERM,
+    payload: {
+        data: searchKeyWord
+    }
+});

@@ -6,6 +6,8 @@ import SearchBox from "../../../components/SearchBox";
 import Spinner from "../../../components/General/Spinner";
 import Condition from "../../../components/General/Condition";
 import MultiSelectFilter from "./MultiSelectFilter/index";
+import { trimString } from "../../../utils/helper";
+import * as filterActions from "../../../store/actions/filter.action";
 import * as colors from "../../../utils/colour";
 
 const SideBarFilterContainer = styled(Flex)`
@@ -37,7 +39,10 @@ const SidebarFilters = props => {
     return (
         <SideBarFilterContainer>
             <SearchBoxWrapper>
-                <SearchBox />
+                <SearchBox
+                  searchKeyword={props.searchKeyword}
+                  handleSearchInputChange={props.handleSearchKeywordChange}
+                />
             </SearchBoxWrapper>
             <FilterContainer>
                 <Condition when={props.isLoading}>
@@ -54,8 +59,19 @@ const SidebarFilters = props => {
 function mapStateToProps(state) {
     return {
         isLoading: state.filters.isLoading || false,
-        filtersToRender: state.filters.filterToRender || []
+        filtersToRender: state.filters.filterToRender || [],
+        searchKeyword: state.filters.searchKeyword || ""
+    };
+}
+function mapDispatchToProps(dispatch) {
+    return {
+        handleSearchKeywordChange: searchTerm => {
+            dispatch(filterActions.updateSearchKeyword(trimString(searchTerm)));
+        }
     };
 }
 
-export default connect(mapStateToProps)(SidebarFilters);
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(SidebarFilters);

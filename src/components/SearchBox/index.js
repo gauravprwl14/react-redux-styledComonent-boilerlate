@@ -39,27 +39,39 @@ function useDebounce(value, delay) {
 }
 
 const SearchBox = props => {
-    const [searchTerm, setSearchTeam] = useState("");
+    const [searchTerm, setSearchTerm] = useState(props.searchKeyword || "");
     const deBouncedSearchTerm = useDebounce(searchTerm, 500);
+
     const handleChange = event => {
         if (event) {
             event.preventDefault();
             const { value } = event.target;
-            setSearchTeam(value);
+            setSearchTerm(value);
         }
     };
+
     useEffect(() => {
         if (props.handleSearchInputChange) {
             props.handleSearchInputChange(deBouncedSearchTerm);
         }
     }, [deBouncedSearchTerm]);
+
+    useEffect(() => {
+        setSearchTerm(props.searchKeyword);
+    }, [props.searchKeyword]);
+
     return (
         <SearchBoxContainer center>
             <Box>
                 <span className="text t-m text-bold">Search</span>
             </Box>
             <InputBoxContainer>
-                <Input className="marginV0" icon="search" onChange={handleChange} />
+                <Input
+                  className="marginV0"
+                  icon="search"
+                  value={searchTerm}
+                  onChange={handleChange}
+                />
             </InputBoxContainer>
         </SearchBoxContainer>
     );
