@@ -24,8 +24,10 @@ const FilterTitle = props => {
 
 const RenderFilter = props => {
     return (
-        <UI.Container onClick={() => props.handleFilterExpand(props.id, !props.isExpand)}>
-            <FilterTitle title={props.name} isExpand={props.isExpand} />
+        <UI.Container>
+            <Box onClick={() => props.handleFilterExpand(props.id, !props.isExpand)}>
+                <FilterTitle title={props.name} isExpand={props.isExpand} />
+            </Box>
             <Condition when={props.isExpand}>
                 <UI.CheckboxContainer>
                     <MultiSelectCheckbox options={props.values} />
