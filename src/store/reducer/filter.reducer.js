@@ -1,3 +1,4 @@
+import * as R from "ramda";
 import actionTypes from "../constants";
 import { isNilOrEmpty } from "../../utils/helper";
 
@@ -18,24 +19,37 @@ export default function(state = initialState, action = {}) {
             };
         }
         case actionTypes.FETCH_ALL_FILTERS_SUCCESS: {
-            if (isNilOrEmpty(payload.data)) {
-                return state;
-            }
             return {
                 ...state,
                 isLoading: false,
-                filterToRender: payload.data
+                filterToRender: !R.isNil(payload.data) ? payload.data : []
             };
         }
         case actionTypes.FETCH_ALL_FILTERS_FAILURE: {
+            return {
+                ...state,
+                isLoading: false
+            };
+        }
+        case actionTypes.TOGGLE_FILTER_EXPAND_STATE: {
+            if (isNilOrEmpty(payload.filterId)) {
+                return state;
+            }
+            return R.assocPath(
+                ["selectedFilters", payload.filterId, "isExpand"],
+                payload.expandState || false,
+                state
+            );
+        }
+        case actionTypes.INITIALIZE_SELECTED_FILTER_STATE: {
             if (isNilOrEmpty(payload.data)) {
                 return state;
             }
-            return {
-                ...state,
-                isLoading: false,
-                filterToRender: payload.data
-            };
+            return R.assocPath(
+                ["selectedFilters", payload.filterId, "isExpand"],
+                payload.expandState || false,
+                state
+            );
         }
 
         default:

@@ -23,7 +23,7 @@ function schemaToMapFilterObj(filterObj) {
         return res;
     }
 
-    res.id = filterObj.name || "";
+    res.id = filterObj.id || "";
     res.name = filterObj.name || "";
     res.values = !isNilOrEmpty(filterObj.values)
         ? R.map(schemaToMapFilterValue)(filterObj.values)
@@ -41,6 +41,29 @@ export function mapMasterFilterData(filterDataFromApi) {
     mappedData = R.map(schemaToMapFilterObj)(filterDataFromApi);
 
     return mappedData;
+}
+
+function schemaToMapSelectedFilterState(mappedObj, nextObj) {
+    if (isNilOrEmpty(nextObj.id)) {
+        return mappedObj;
+    }
+    const res = {
+        isExpand: false,
+        selectedFilters: []
+    };
+    // eslint-disable-next-line
+    mappedObj[nextObj.id] = res;
+    return mappedObj;
+}
+
+export function initializeFilterSelectedState(mappedFiltersArr) {
+    let mappedSelectedFilterState = [];
+    if (isNilOrEmpty(mappedFiltersArr)) {
+        return mappedSelectedFilterState;
+    }
+
+    mappedSelectedFilterState = R.reduce(schemaToMapSelectedFilterState, {}, mappedFiltersArr);
+    return mappedSelectedFilterState;
 }
 
 export default mapMasterFilterData;
