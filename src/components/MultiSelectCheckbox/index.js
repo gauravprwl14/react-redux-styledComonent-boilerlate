@@ -46,18 +46,6 @@ const CheckboxContainer = styled(Flex)`
     flex-direction: column;
     padding-top: 10px;
     padding-bottom: 10px;
-
-    ${"" /* .ui.checkbox input:checked:focus ~ .box:before,
-    .ui.checkbox input:checked:focus ~ label:before {
-        background: ${colors.primary};
-        border: rgba(255, 255, 255, 0.36);
-    }
-
-    .ui.checkbox input:checked ~ .box:after,
-    .ui.checkbox input:checked ~ label:after {
-        color: ${colors.white};
-        border: rgba(255, 255, 255, 0.36);
-    } */}
 `;
 
 const ActionButtons = () => {

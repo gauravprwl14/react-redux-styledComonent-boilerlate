@@ -52,7 +52,10 @@ const RenderShowContact = props => {
                         <Table.Row>
                             {props.headerColumnArr.map(tableHeaderObj => {
                                 return (
-                                    <Table.HeaderCell width={tableHeaderObj.width}>
+                                    <Table.HeaderCell
+                                      width={tableHeaderObj.width}
+                                      key={tableHeaderObj.name}
+                                    >
                                         {tableHeaderObj.name}
                                     </Table.HeaderCell>
                                 );

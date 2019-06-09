@@ -3,11 +3,12 @@ import styled, { css } from "styled-components";
 import { Icon } from "semantic-ui-react";
 import Flex from "../../../components/General/Flex";
 import Box from "../../../components/General/Box";
+import OmitProps from "../../../hoc/OmitProps";
 import MultiSelectCheckbox from "../../../components/MultiSelectCheckbox";
 import { isNilOrEmpty } from "../../../utils/helper";
 import * as colors from "../../../utils/colour";
 
-const FilterWrapper = styled(Flex)`
+const FilterWrapper = styled(OmitProps(["isOpened"], Flex))`
     flex: 1;
     min-height: 66px;
     align-items: center;
@@ -73,7 +74,7 @@ const MultiSelectFilter = props => {
         return <Container>No Filters Available</Container>;
     }
     return props.filtersToRender.map(filterObj => {
-        return <RenderFilter {...filterObj} />;
+        return <RenderFilter {...filterObj} key={filterObj.id} />;
     });
 };
 
